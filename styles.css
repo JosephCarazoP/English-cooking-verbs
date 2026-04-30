@@ -608,3 +608,446 @@ footer { text-align: center; color: var(--muted); padding: 18px; }
     width: 100%;
   }
 }
+
+
+/* Mobile polish update */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+
+main {
+  min-width: 0;
+}
+
+button, input, select, textarea {
+  font-size: 16px;
+}
+
+.brand, .brand > div, .topbar, .deck-head, .answer-actions, .audio-row, .goal-summary, .section-title {
+  min-width: 0;
+}
+
+.brand > div {
+  min-width: 0;
+}
+
+.brand h1,
+.brand p,
+#currentFilterLabel,
+#frontWord,
+#backTranslation,
+#detailWord,
+#detailTranslation,
+#detailDemoText,
+#exampleOne,
+#exampleTwo,
+.goal-item strong,
+.goal-item small,
+.complete-stats span,
+.stat-card small {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.answer-btn,
+.primary-btn,
+.secondary-btn,
+.ghost-btn,
+.wide-btn,
+.icon-btn,
+.chip,
+.pill,
+.speed-btn,
+.segmented button,
+.mini-btn,
+.library-item {
+  touch-action: manipulation;
+}
+
+.flashcard,
+.card-face,
+.modal-card,
+.library-item,
+.stat-card,
+.glass-panel {
+  max-width: 100%;
+}
+
+.close-btn {
+  z-index: 2;
+}
+
+@media (max-width: 720px) {
+  body {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .topbar {
+    align-items: center;
+    gap: 12px;
+  }
+
+  .brand {
+    flex: 1;
+    min-width: 0;
+    align-items: center;
+  }
+
+  .top-actions {
+    flex: 0 0 auto;
+  }
+
+  .icon-btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 14px;
+  }
+
+  .first-study {
+    min-height: auto;
+    padding-bottom: 18px;
+  }
+
+  .first-study .deck-head {
+    width: 100%;
+    max-width: 460px;
+    align-items: flex-start;
+  }
+
+  .first-study .flashcard,
+  .flashcard {
+    width: 100%;
+    max-width: 460px;
+    height: clamp(280px, 54svh, 350px);
+  }
+
+  .visual-orb {
+    width: 88px;
+    height: 88px;
+    margin-top: 16px;
+    margin-bottom: 14px;
+    border-radius: 26px;
+    font-size: 2.7rem;
+  }
+
+  .card-face {
+    padding: 20px 18px;
+  }
+
+  .card-face h2 {
+    font-size: clamp(2rem, 10vw, 3.1rem);
+  }
+
+  .card-back h2 {
+    font-size: clamp(1.6rem, 7vw, 2.4rem);
+  }
+
+  .tag {
+    font-size: 0.74rem;
+    padding: 6px 10px;
+  }
+
+  .answer-actions,
+  .first-study .answer-actions,
+  .first-study .swipe-help {
+    width: 100%;
+    max-width: 460px;
+  }
+
+  .answer-btn {
+    min-height: 48px;
+    padding: 12px 14px;
+  }
+
+  .swipe-help {
+    font-size: 0.8rem;
+    gap: 12px;
+  }
+
+  .stats-grid {
+    gap: 10px;
+  }
+
+  .stat-card {
+    padding: 14px;
+    border-radius: 18px;
+  }
+
+  .study-area, .round-complete, .library-panel, .controls {
+    padding: 16px;
+  }
+
+  .search-wrap {
+    padding: 12px 14px;
+  }
+
+  .filter-group {
+    gap: 8px;
+  }
+
+  .chip, .pill {
+    min-height: 40px;
+  }
+
+  .library-grid {
+    grid-template-columns: 1fr;
+    max-height: none;
+    overflow: visible;
+  }
+
+  .modal {
+    align-items: end;
+    padding: 0;
+  }
+
+  .modal-card {
+    width: 100%;
+    max-width: 100%;
+    max-height: 90svh;
+    border-radius: 24px 24px 0 0;
+    padding: 22px 18px calc(18px + env(safe-area-inset-bottom));
+    overscroll-behavior: contain;
+  }
+
+  .detail-hero {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-right: 36px;
+  }
+
+  .detail-visual {
+    width: 84px;
+    height: 84px;
+    border-radius: 22px;
+    font-size: 2.6rem;
+  }
+
+  .audio-row {
+    align-items: stretch;
+  }
+
+  .audio-row .primary-btn,
+  .audio-row .speed-group {
+    width: 100%;
+  }
+
+  .speed-group,
+  .segmented {
+    flex-wrap: wrap;
+    justify-content: stretch;
+  }
+
+  .speed-btn,
+  .segmented button {
+    flex: 1 1 0;
+    text-align: center;
+  }
+
+  .goal-item {
+    grid-template-columns: auto 1fr;
+  }
+
+  .goal-xp {
+    grid-column: 2;
+    justify-self: start;
+  }
+}
+
+@media (max-width: 560px) {
+  .topbar {
+    align-items: flex-start;
+  }
+
+  .deck-head {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .deck-head .ghost-btn {
+    width: 100%;
+  }
+
+  .level-card {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .streak-badge {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .complete-actions,
+  .onboarding-actions {
+    flex-direction: column;
+  }
+
+  .complete-actions > *,
+  .onboarding-actions > * {
+    width: 100%;
+  }
+
+  .goal-summary {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 460px) {
+  .app-shell {
+    width: calc(100% - 18px);
+    padding-top: 10px;
+  }
+
+  .topbar {
+    gap: 10px;
+  }
+
+  .brand h1 {
+    font-size: 1.18rem;
+    line-height: 1.05;
+  }
+
+  .brand p {
+    display: block;
+    font-size: 0.78rem;
+    line-height: 1.2;
+    margin-top: 4px;
+  }
+
+  .logo {
+    width: 42px;
+    height: 42px;
+    border-radius: 14px;
+    font-size: 24px;
+  }
+
+  .first-study {
+    padding-bottom: 14px;
+  }
+
+  .first-study .flashcard,
+  .flashcard {
+    height: clamp(265px, 50svh, 320px);
+  }
+
+  .card-face {
+    padding: 18px 16px;
+    border-radius: 24px;
+  }
+
+  .visual-orb {
+    width: 76px;
+    height: 76px;
+    font-size: 2.3rem;
+    margin-top: 12px;
+    margin-bottom: 10px;
+  }
+
+  .card-face h2 {
+    font-size: clamp(1.75rem, 10vw, 2.55rem);
+    margin-bottom: 8px;
+  }
+
+  .card-back h2 {
+    font-size: clamp(1.35rem, 8vw, 2rem);
+    margin-top: 16px;
+  }
+
+  .pron {
+    margin-bottom: 8px;
+    font-size: 0.96rem;
+  }
+
+  #backExtra,
+  .card-front p,
+  .card-face small,
+  .swipe-help {
+    font-size: 0.82rem;
+  }
+
+  .first-study .answer-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .first-study .answer-btn.details {
+    grid-column: 1 / -1;
+    width: 100%;
+    min-height: 44px;
+  }
+
+  .answer-btn {
+    font-size: 0.95rem;
+    padding: 11px 12px;
+    border-radius: 14px;
+  }
+
+  .swipe-help {
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .study-area, .round-complete, .library-panel, .controls, .level-card {
+    padding: 14px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .stat-card span {
+    font-size: 1.25rem;
+  }
+
+  .section-title h2,
+  .compact-title h2 {
+    font-size: 1.1rem;
+  }
+
+  .chip, .pill, .ghost-btn, .secondary-btn, .speed-btn, .segmented button, .mini-btn {
+    padding: 10px 12px;
+    border-radius: 14px;
+  }
+
+  .toggle-line {
+    align-items: flex-start;
+    line-height: 1.35;
+  }
+
+  .modal-card {
+    padding: 20px 16px calc(16px + env(safe-area-inset-bottom));
+    border-radius: 22px 22px 0 0;
+  }
+
+  .close-btn {
+    top: 10px;
+    right: 10px;
+  }
+
+  .detail-demo {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .detail-grid article {
+    padding: 14px;
+  }
+
+  .settings-card section {
+    padding: 14px 0;
+  }
+
+  footer {
+    padding-left: 8px;
+    padding-right: 8px;
+    font-size: 0.85rem;
+  }
+}
