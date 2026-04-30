@@ -1,0 +1,10 @@
+{
+  "name": "Kitchen English",
+  "short_name": "Kitchen English",
+  "description": "Minimalist cooking vocabulary trainer in English.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#fff7ed",
+  "theme_color": "#f59e0b",
+  "icons": []
+}

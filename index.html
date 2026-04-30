@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f59e0b" />
+  <title>Kitchen English</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="hero">
+      <nav class="topbar" aria-label="Main navigation">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true">🍳</div>
+          <div>
+            <p class="eyebrow">Vocabulary trainer</p>
+            <h1>Kitchen English</h1>
+          </div>
+        </div>
+        <div class="actions-row">
+          <button class="icon-btn" id="themeToggle" type="button" aria-label="Cambiar tema">
+            <span id="themeIcon">🌙</span>
+          </button>
+        </div>
+      </nav>
+
+      <section class="hero-content">
+        <div>
+          <p class="pill">Cooking verbs + kitchen utensils</p>
+          <h2>Aprende vocabulario de cocina en inglés con cards rápidas.</h2>
+          <p class="subtitle">Busca, filtra, marca como aprendido y escucha la pronunciación sin salir de la app.</p>
+        </div>
+        <div class="progress-card" aria-live="polite">
+          <div class="progress-head">
+            <span>Progreso</span>
+            <strong id="progressPercent">0%</strong>
+          </div>
+          <div class="progress-track" aria-label="Porcentaje completado">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+          <div class="stats-grid">
+            <div><strong id="totalWords">0</strong><span>Total</span></div>
+            <div><strong id="viewedWords">0</strong><span>Vistas</span></div>
+            <div><strong id="learnedWords">0</strong><span>Aprendidas</span></div>
+          </div>
+        </div>
+      </section>
+    </header>
+
+    <main>
+      <section class="control-panel" aria-label="Filtros de estudio">
+        <label class="search-box" for="searchInput">
+          <span aria-hidden="true">🔎</span>
+          <input id="searchInput" type="search" placeholder="Buscar: chop, cuchillo, boil..." autocomplete="off" />
+        </label>
+
+        <div class="filters">
+          <select id="categoryFilter" aria-label="Filtrar por categoría">
+            <option value="All">All categories</option>
+            <option value="Cooking Verb">Cooking Verbs</option>
+            <option value="Kitchen Utensil">Kitchen Utensils</option>
+          </select>
+
+          <select id="difficultyFilter" aria-label="Filtrar por dificultad">
+            <option value="All">All difficulties</option>
+            <option value="Basic">Basic</option>
+            <option value="Intermediate">Intermediate</option>
+            <option value="Advanced">Advanced</option>
+          </select>
+
+          <button class="filter-toggle" id="unlearnedToggle" type="button" aria-pressed="false">
+            Solo no aprendidas
+          </button>
+
+          <button class="ghost-btn" id="resetProgress" type="button">
+            Reiniciar progreso
+          </button>
+        </div>
+      </section>
+
+      <section class="section-head">
+        <div>
+          <p class="eyebrow">Study deck</p>
+          <h3 id="resultTitle">Todas las palabras</h3>
+        </div>
+        <p id="resultCount">0 palabras</p>
+      </section>
+
+      <section class="cards-grid" id="cardsGrid" aria-live="polite"></section>
+
+      <section class="empty-state" id="emptyState" hidden>
+        <div>🧂</div>
+        <h3>No encontré palabras con esos filtros.</h3>
+        <p>Prueba limpiando la búsqueda o cambiando la categoría.</p>
+      </section>
+    </main>
+  </div>
+
+  <div class="modal-backdrop" id="detailsModal" aria-hidden="true">
+    <article class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="close-btn" id="closeModal" type="button" aria-label="Cerrar detalles">×</button>
+      <div class="modal-visual" id="modalVisual">🍳</div>
+      <div class="modal-content">
+        <div class="modal-title-row">
+          <div>
+            <p class="eyebrow" id="modalCategory">Cooking Verb</p>
+            <h2 id="modalTitle">Word</h2>
+          </div>
+          <span class="difficulty-badge" id="modalDifficulty">Basic</span>
+        </div>
+
+        <div class="detail-grid">
+          <div>
+            <span>Traducción</span>
+            <strong id="modalTranslation">-</strong>
+          </div>
+          <div>
+            <span>Pronunciación</span>
+            <strong id="modalPronunciation">-</strong>
+          </div>
+          <div id="pastBlock">
+            <span>Pasado</span>
+            <strong id="modalPast">-</strong>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button class="primary-btn" id="speakBtn" type="button">▶ Escuchar</button>
+          <button class="secondary-btn" id="modalLearnedBtn" type="button">Marcar aprendida</button>
+        </div>
+
+        <div class="examples">
+          <h4>Ejemplos</h4>
+          <div class="example-card">
+            <span id="exampleLabel1">Presente</span>
+            <p id="modalExample1"></p>
+          </div>
+          <div class="example-card">
+            <span id="exampleLabel2">Pasado</span>
+            <p id="modalExample2"></p>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
