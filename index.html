@@ -26,57 +26,8 @@
       </div>
     </header>
 
-    <section class="level-card glass-panel">
-      <div class="streak-badge">
-        <strong id="streakDays">0</strong>
-        <span>días</span>
-      </div>
-      <div class="level-info">
-        <div class="level-row">
-          <span id="levelName">Novato</span>
-          <strong><span id="xpValue">0</span> EXP</strong>
-        </div>
-        <div class="xp-bar" aria-label="Progreso de nivel">
-          <span id="xpBar"></span>
-        </div>
-        <small id="xpHelp">100 EXP para subir</small>
-      </div>
-    </section>
-
     <main>
-      <section class="controls glass-panel">
-        <div class="search-wrap">
-          <span>⌕</span>
-          <input id="searchInput" type="search" placeholder="Search: chop, cuchillo, boil…" autocomplete="off" />
-        </div>
-
-        <div class="filter-group" aria-label="Categoría">
-          <button class="chip active" data-category="All">All</button>
-          <button class="chip" data-category="Cooking Verbs">Cooking Verbs</button>
-          <button class="chip" data-category="Kitchen Utensils">Kitchen Utensils</button>
-        </div>
-
-        <div class="filter-group" aria-label="Dificultad">
-          <button class="pill active" data-difficulty="All">All</button>
-          <button class="pill" data-difficulty="Basic">Basic</button>
-          <button class="pill" data-difficulty="Intermediate">Intermediate</button>
-          <button class="pill" data-difficulty="Advanced">Advanced</button>
-        </div>
-
-        <label class="toggle-line">
-          <input id="unlearnedOnly" type="checkbox" />
-          <span>Repasar solo no aprendidas</span>
-        </label>
-      </section>
-
-      <section class="stats-grid">
-        <article class="stat-card"><span id="seenCount">0</span><small>Vistas</small></article>
-        <article class="stat-card"><span id="learnedCount">0</span><small>Aprendidas</small></article>
-        <article class="stat-card"><span id="skippedCount">0</span><small>No sabía</small></article>
-        <article class="stat-card"><span id="percentCount">0%</span><small>Completado</small></article>
-      </section>
-
-      <section id="studyArea" class="study-area">
+      <section id="studyArea" class="study-area first-study">
         <div class="deck-head">
           <div>
             <span id="cardCounter">0 / 0</span>
@@ -114,6 +65,61 @@
           <span>← swipe left</span>
           <span>swipe right →</span>
         </div>
+      </section>
+
+      <section class="level-card glass-panel progress-panel">
+        <div class="streak-badge">
+          <strong id="streakDays">0</strong>
+          <span>días</span>
+        </div>
+        <div class="level-info">
+          <div class="level-row">
+            <span id="levelName">Novato</span>
+            <strong><span id="xpValue">0</span> EXP</strong>
+          </div>
+          <div class="xp-bar" aria-label="Progreso de nivel">
+            <span id="xpBar"></span>
+          </div>
+          <small id="xpHelp">100 EXP para subir</small>
+        </div>
+      </section>
+
+      <section class="stats-grid progress-stats">
+        <article class="stat-card"><span id="seenCount">0</span><small>Vistas</small></article>
+        <article class="stat-card"><span id="learnedCount">0</span><small>Aprendidas</small></article>
+        <article class="stat-card"><span id="skippedCount">0</span><small>No sabía</small></article>
+        <article class="stat-card"><span id="percentCount">0%</span><small>Completado</small></article>
+      </section>
+
+      <section class="controls glass-panel study-tools">
+        <div class="section-title compact-title">
+          <div>
+            <h2>Study tools</h2>
+            <p>Busca, filtra o repasa solo lo que todavía no dominas.</p>
+          </div>
+        </div>
+        <div class="search-wrap">
+          <span>⌕</span>
+          <input id="searchInput" type="search" placeholder="Search: chop, cuchillo, boil…" autocomplete="off" />
+        </div>
+
+        <div class="filter-group" aria-label="Categoría">
+          <button class="chip active" data-category="All">All</button>
+          <button class="chip" data-category="Cooking Verbs">Cooking Verbs</button>
+          <button class="chip" data-category="Kitchen Utensils">Kitchen Utensils</button>
+        </div>
+
+        <div class="filter-group" aria-label="Dificultad">
+          <button class="pill active" data-difficulty="All">All</button>
+          <button class="pill" data-difficulty="Basic">Basic</button>
+          <button class="pill" data-difficulty="Intermediate">Intermediate</button>
+          <button class="pill" data-difficulty="Advanced">Advanced</button>
+        </div>
+
+        <label class="toggle-line">
+          <input id="unlearnedOnly" type="checkbox" />
+          <span>Repasar solo no aprendidas</span>
+        </label>
       </section>
 
       <section id="roundComplete" class="round-complete glass-panel hidden">

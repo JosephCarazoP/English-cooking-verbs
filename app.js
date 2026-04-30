@@ -3110,8 +3110,8 @@ function init() {
   resetDeck(false);
   renderStats();
   if (!state.onboarded) {
-    renderOnboarding();
-    openModal("onboardingModal");
+    state.onboarded = true;
+    saveState();
   }
   if ("serviceWorker" in navigator) {
     navigator.serviceWorker.register("service-worker.js").catch(() => {});
