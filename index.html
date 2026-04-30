@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
@@ -7,143 +7,253 @@
   <title>Kitchen English</title>
   <link rel="manifest" href="manifest.json" />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%23f59e0b'/%3E%3Ctext x='50' y='60' font-size='48' text-anchor='middle'%3E🍳%3C/text%3E%3C/svg%3E" />
 </head>
 <body>
   <div class="app-shell">
-    <header class="hero">
-      <nav class="topbar" aria-label="Main navigation">
-        <div class="brand">
-          <div class="brand-mark" aria-hidden="true">🍳</div>
-          <div>
-            <p class="eyebrow">Vocabulary trainer</p>
-            <h1>Kitchen English</h1>
-          </div>
-        </div>
-        <div class="actions-row">
-          <button class="icon-btn" id="themeToggle" type="button" aria-label="Cambiar tema">
-            <span id="themeIcon">🌙</span>
-          </button>
-        </div>
-      </nav>
-
-      <section class="hero-content">
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">🍳</div>
         <div>
-          <p class="pill">Cooking verbs + kitchen utensils</p>
-          <h2>Aprende vocabulario de cocina en inglés con cards rápidas.</h2>
-          <p class="subtitle">Busca, filtra, marca como aprendido y escucha la pronunciación sin salir de la app.</p>
-        </div>
-        <div class="progress-card" aria-live="polite">
-          <div class="progress-head">
-            <span>Progreso</span>
-            <strong id="progressPercent">0%</strong>
-          </div>
-          <div class="progress-track" aria-label="Porcentaje completado">
-            <div class="progress-fill" id="progressFill"></div>
-          </div>
-          <div class="stats-grid">
-            <div><strong id="totalWords">0</strong><span>Total</span></div>
-            <div><strong id="viewedWords">0</strong><span>Vistas</span></div>
-            <div><strong id="learnedWords">0</strong><span>Aprendidas</span></div>
-          </div>
-        </div>
-      </section>
-    </header>
-
-    <main>
-      <section class="control-panel" aria-label="Filtros de estudio">
-        <label class="search-box" for="searchInput">
-          <span aria-hidden="true">🔎</span>
-          <input id="searchInput" type="search" placeholder="Buscar: chop, cuchillo, boil..." autocomplete="off" />
-        </label>
-
-        <div class="filters">
-          <select id="categoryFilter" aria-label="Filtrar por categoría">
-            <option value="All">All categories</option>
-            <option value="Cooking Verb">Cooking Verbs</option>
-            <option value="Kitchen Utensil">Kitchen Utensils</option>
-          </select>
-
-          <select id="difficultyFilter" aria-label="Filtrar por dificultad">
-            <option value="All">All difficulties</option>
-            <option value="Basic">Basic</option>
-            <option value="Intermediate">Intermediate</option>
-            <option value="Advanced">Advanced</option>
-          </select>
-
-          <button class="filter-toggle" id="unlearnedToggle" type="button" aria-pressed="false">
-            Solo no aprendidas
-          </button>
-
-          <button class="ghost-btn" id="resetProgress" type="button">
-            Reiniciar progreso
-          </button>
-        </div>
-      </section>
-
-      <section class="section-head">
-        <div>
-          <p class="eyebrow">Study deck</p>
-          <h3 id="resultTitle">Todas las palabras</h3>
-        </div>
-        <p id="resultCount">0 palabras</p>
-      </section>
-
-      <section class="cards-grid" id="cardsGrid" aria-live="polite"></section>
-
-      <section class="empty-state" id="emptyState" hidden>
-        <div>🧂</div>
-        <h3>No encontré palabras con esos filtros.</h3>
-        <p>Prueba limpiando la búsqueda o cambiando la categoría.</p>
-      </section>
-    </main>
-  </div>
-
-  <div class="modal-backdrop" id="detailsModal" aria-hidden="true">
-    <article class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <button class="close-btn" id="closeModal" type="button" aria-label="Cerrar detalles">×</button>
-      <div class="modal-visual" id="modalVisual">🍳</div>
-      <div class="modal-content">
-        <div class="modal-title-row">
-          <div>
-            <p class="eyebrow" id="modalCategory">Cooking Verb</p>
-            <h2 id="modalTitle">Word</h2>
-          </div>
-          <span class="difficulty-badge" id="modalDifficulty">Basic</span>
-        </div>
-
-        <div class="detail-grid">
-          <div>
-            <span>Traducción</span>
-            <strong id="modalTranslation">-</strong>
-          </div>
-          <div>
-            <span>Pronunciación</span>
-            <strong id="modalPronunciation">-</strong>
-          </div>
-          <div id="pastBlock">
-            <span>Pasado</span>
-            <strong id="modalPast">-</strong>
-          </div>
-        </div>
-
-        <div class="modal-actions">
-          <button class="primary-btn" id="speakBtn" type="button">▶ Escuchar</button>
-          <button class="secondary-btn" id="modalLearnedBtn" type="button">Marcar aprendida</button>
-        </div>
-
-        <div class="examples">
-          <h4>Ejemplos</h4>
-          <div class="example-card">
-            <span id="exampleLabel1">Presente</span>
-            <p id="modalExample1"></p>
-          </div>
-          <div class="example-card">
-            <span id="exampleLabel2">Pasado</span>
-            <p id="modalExample2"></p>
-          </div>
+          <h1>Kitchen English</h1>
+          <p>Learn cooking verbs & kitchen tools</p>
         </div>
       </div>
-    </article>
+
+      <div class="top-actions">
+        <button class="icon-btn" id="goalsBtn" title="Objetivos">🏆</button>
+        <button class="icon-btn" id="settingsBtn" title="Configuración">⚙️</button>
+      </div>
+    </header>
+
+    <section class="level-card glass-panel">
+      <div class="streak-badge">
+        <strong id="streakDays">0</strong>
+        <span>días</span>
+      </div>
+      <div class="level-info">
+        <div class="level-row">
+          <span id="levelName">Novato</span>
+          <strong><span id="xpValue">0</span> EXP</strong>
+        </div>
+        <div class="xp-bar" aria-label="Progreso de nivel">
+          <span id="xpBar"></span>
+        </div>
+        <small id="xpHelp">100 EXP para subir</small>
+      </div>
+    </section>
+
+    <main>
+      <section class="controls glass-panel">
+        <div class="search-wrap">
+          <span>⌕</span>
+          <input id="searchInput" type="search" placeholder="Search: chop, cuchillo, boil…" autocomplete="off" />
+        </div>
+
+        <div class="filter-group" aria-label="Categoría">
+          <button class="chip active" data-category="All">All</button>
+          <button class="chip" data-category="Cooking Verbs">Cooking Verbs</button>
+          <button class="chip" data-category="Kitchen Utensils">Kitchen Utensils</button>
+        </div>
+
+        <div class="filter-group" aria-label="Dificultad">
+          <button class="pill active" data-difficulty="All">All</button>
+          <button class="pill" data-difficulty="Basic">Basic</button>
+          <button class="pill" data-difficulty="Intermediate">Intermediate</button>
+          <button class="pill" data-difficulty="Advanced">Advanced</button>
+        </div>
+
+        <label class="toggle-line">
+          <input id="unlearnedOnly" type="checkbox" />
+          <span>Repasar solo no aprendidas</span>
+        </label>
+      </section>
+
+      <section class="stats-grid">
+        <article class="stat-card"><span id="seenCount">0</span><small>Vistas</small></article>
+        <article class="stat-card"><span id="learnedCount">0</span><small>Aprendidas</small></article>
+        <article class="stat-card"><span id="skippedCount">0</span><small>No sabía</small></article>
+        <article class="stat-card"><span id="percentCount">0%</span><small>Completado</small></article>
+      </section>
+
+      <section id="studyArea" class="study-area">
+        <div class="deck-head">
+          <div>
+            <span id="cardCounter">0 / 0</span>
+            <small id="currentFilterLabel">All vocabulary</small>
+          </div>
+          <button id="shuffleBtn" class="ghost-btn">⇄ Shuffle</button>
+        </div>
+
+        <div class="flashcard-wrap">
+          <article id="flashcard" class="flashcard" tabindex="0" role="button" aria-label="Toca para girar la tarjeta">
+            <div class="card-face card-front">
+              <span class="tag" id="frontTag">Cooking Verb</span>
+              <div class="visual-orb" id="frontVisual">🍳</div>
+              <h2 id="frontWord">Loading…</h2>
+              <p id="frontHint">tap to flip</p>
+              <small>tap ✦ for details</small>
+            </div>
+            <div class="card-face card-back">
+              <span class="tag" id="backTag">Verb</span>
+              <h2 id="backTranslation">—</h2>
+              <p class="pron" id="backPronunciation">/—/</p>
+              <p id="backExtra">Past: —</p>
+              <small>Tap again to return</small>
+            </div>
+          </article>
+        </div>
+
+        <div class="answer-actions">
+          <button id="dontKnowBtn" class="answer-btn negative">I don't know</button>
+          <button id="knowBtn" class="answer-btn positive">I know it</button>
+          <button id="detailsBtn" class="answer-btn details">✦</button>
+        </div>
+
+        <div class="swipe-help">
+          <span>← swipe left</span>
+          <span>swipe right →</span>
+        </div>
+      </section>
+
+      <section id="roundComplete" class="round-complete glass-panel hidden">
+        <div class="complete-icon">🎉</div>
+        <h2>Round complete!</h2>
+        <p>Buen trabajo. Podés hacer un quiz o mezclar las palabras.</p>
+        <div class="complete-stats">
+          <span><strong id="roundLearned">0</strong> Learned</span>
+          <span><strong id="roundSkipped">0</strong> Skipped</span>
+          <span><strong id="roundTotal">0</strong> Total</span>
+        </div>
+        <div class="complete-actions">
+          <button id="quizBtn" class="primary-btn">Take Final Quiz</button>
+          <button id="shareBtn" class="secondary-btn">Share Results</button>
+          <button id="restartBtn" class="secondary-btn">Shuffle & Restart</button>
+        </div>
+      </section>
+
+      <section class="library-panel glass-panel">
+        <div class="section-title">
+          <div>
+            <h2>Vocabulary library</h2>
+            <p>Vista rápida de todas las palabras filtradas.</p>
+          </div>
+          <span id="libraryCount">0 words</span>
+        </div>
+        <div id="libraryGrid" class="library-grid"></div>
+      </section>
+    </main>
+
+    <footer>Made for Joseph · Kitchen English</footer>
+  </div>
+
+  <div id="detailModal" class="modal hidden" aria-hidden="true">
+    <div class="modal-card detail-card">
+      <button class="close-btn" data-close="detailModal">✕</button>
+      <div class="detail-hero">
+        <div class="detail-visual" id="detailVisual">🍳</div>
+        <div>
+          <span class="tag" id="detailCategory">Category</span>
+          <h2 id="detailWord">Word</h2>
+          <p id="detailTranslation">Translation</p>
+          <p class="pron" id="detailPronunciation">/pron/</p>
+        </div>
+      </div>
+
+      <div class="audio-row">
+        <button id="speakWordBtn" class="primary-btn">▶ Escuchar</button>
+        <div class="speed-group" role="group" aria-label="Velocidad">
+          <button class="speed-btn" data-speed="0.75">Lento</button>
+          <button class="speed-btn active" data-speed="1">Normal</button>
+          <button class="speed-btn" data-speed="1.2">Rápido</button>
+        </div>
+      </div>
+
+      <div class="detail-demo">
+        <span id="detailDemoEmoji">🍳</span>
+        <p id="detailDemoText">Visual demo</p>
+      </div>
+
+      <div class="detail-grid">
+        <article>
+          <small id="exampleOneLabel">Present</small>
+          <p id="exampleOne">—</p>
+          <button id="speakExampleOne" class="mini-btn">Present ▶</button>
+        </article>
+        <article>
+          <small id="exampleTwoLabel">Past</small>
+          <p id="exampleTwo">—</p>
+          <button id="speakExampleTwo" class="mini-btn">Past ▶</button>
+        </article>
+      </div>
+
+      <button id="toggleLearnedDetail" class="wide-btn">Mark as learned</button>
+    </div>
+  </div>
+
+  <div id="goalsModal" class="modal hidden" aria-hidden="true">
+    <div class="modal-card">
+      <button class="close-btn" data-close="goalsModal">✕</button>
+      <h2>🏆 Objetivos</h2>
+      <p class="muted">Cumple metas usando la app: aprende palabras, mantén tu racha y supera quizzes.</p>
+      <div class="goal-summary">
+        <strong id="goalsCompleted">0 / 0 completados</strong>
+        <span id="goalLevelText">Novato · 0 EXP</span>
+      </div>
+      <div id="goalsList" class="goals-list"></div>
+    </div>
+  </div>
+
+  <div id="settingsModal" class="modal hidden" aria-hidden="true">
+    <div class="modal-card settings-card">
+      <button class="close-btn" data-close="settingsModal">✕</button>
+      <h2>⚙️ Configuración</h2>
+      <section>
+        <h3>Apariencia</h3>
+        <div class="segmented" id="themeSelector">
+          <button data-theme="auto" class="active">Auto</button>
+          <button data-theme="dark">Oscuro</button>
+          <button data-theme="light">Claro</button>
+        </div>
+        <label class="toggle-line"><input id="animationsToggle" type="checkbox" checked /> <span>Animaciones</span></label>
+      </section>
+      <section>
+        <h3>Audio</h3>
+        <div class="segmented" id="defaultSpeedSelector">
+          <button data-speed="0.75">Lento</button>
+          <button data-speed="1" class="active">Normal</button>
+          <button data-speed="1.2">Rápido</button>
+        </div>
+        <label class="toggle-line"><input id="autoplayToggle" type="checkbox" /> <span>Auto-play al abrir ✦</span></label>
+      </section>
+      <section>
+        <h3>Instalar app</h3>
+        <button id="installBtn" class="primary-btn">Instalar</button>
+        <p class="muted small">En iPhone: Compartir → Añadir a pantalla de inicio. En Chrome/Brave: menú ⋮ → Añadir a pantalla de inicio.</p>
+      </section>
+      <section>
+        <h3>Datos</h3>
+        <button id="resetStreakBtn" class="secondary-btn danger">Resetear racha diaria</button>
+        <button id="resetAllBtn" class="secondary-btn danger">Borrar todo el progreso</button>
+      </section>
+    </div>
+  </div>
+
+  <div id="onboardingModal" class="modal hidden" aria-hidden="true">
+    <div class="modal-card onboarding-card">
+      <div id="onboardingSlide"></div>
+      <div class="onboarding-actions">
+        <button id="prevOnboarding" class="secondary-btn">← Atrás</button>
+        <button id="nextOnboarding" class="primary-btn">Siguiente →</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="quizModal" class="modal hidden" aria-hidden="true">
+    <div class="modal-card quiz-card">
+      <button class="close-btn" data-close="quizModal">✕</button>
+      <div id="quizContent"></div>
+    </div>
   </div>
 
   <script src="app.js"></script>

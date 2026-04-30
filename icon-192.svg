@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="120" fill="#f59e0b"/>
+  <circle cx="376" cy="130" r="96" fill="#10b981" opacity="0.35"/>
+  <circle cx="108" cy="400" r="110" fill="#fff7ed" opacity="0.32"/>
+  <text x="256" y="316" font-size="210" text-anchor="middle" font-family="Apple Color Emoji, Segoe UI Emoji, sans-serif">🍳</text>
+</svg>
