@@ -2520,6 +2520,22 @@ let onboardingIndex = 0;
 let quizState = null;
 let touchStartX = 0;
 
+function iconForItem(item) {
+  if (item.category === "Kitchen Utensils") return "utensils-crossed";
+  if (/(boil|simmer|grill|fry|roast|broil)/i.test(item.word)) return "flame";
+  if (/(cut|chop|slice|dice|mince)/i.test(item.word)) return "knife";
+  return "chef-hat";
+}
+
+function imageForItem(item) {
+  const term = `${item.word} cooking`;
+  return `https://source.unsplash.com/900x600/?${encodeURIComponent(term)}`;
+}
+
+function renderLucide() {
+  if (window.lucide?.createIcons) window.lucide.createIcons();
+}
+
 const $ = selector => document.querySelector(selector);
 const $$ = selector => Array.from(document.querySelectorAll(selector));
 
@@ -2689,7 +2705,7 @@ function renderCurrentCard() {
   $("#cardCounter").textContent = `${currentIndex + 1} / ${currentList.length}`;
   $("#currentFilterLabel").textContent = `${activeCategory} · ${activeDifficulty}`;
   $("#frontTag").textContent = `${currentItem.category} · ${currentItem.difficulty}`;
-  $("#frontVisual").textContent = currentItem.visual;
+  $("#frontVisual").innerHTML = `<i data-lucide="${iconForItem(currentItem)}"></i>`;
   $("#frontWord").textContent = currentItem.word;
   $("#backTag").textContent = currentItem.type === "verb" ? "Verb" : "Kitchen Utensil";
   $("#backTranslation").textContent = currentItem.translation;
@@ -2697,6 +2713,7 @@ function renderCurrentCard() {
   $("#backExtra").textContent = currentItem.type === "verb" ? `Past: ${currentItem.pastForm}` : `Type: noun`;
   updateActionButtons();
   renderStats();
+  renderLucide();
 }
 
 function updateActionButtons() {
@@ -2741,11 +2758,12 @@ function renderLibrary() {
   const grid = $("#libraryGrid");
   grid.innerHTML = list.map(item => `
     <button class="library-item ${isLearned(item.id) ? "learned" : ""}" data-id="${item.id}">
-      <span class="emoji">${item.visual}</span>
+      <span class="emoji"><i data-lucide="${iconForItem(item)}"></i></span>
       <span><strong>${item.word}</strong><small>${item.translation}</small></span>
       <span class="learned-dot"></span>
     </button>
   `).join("");
+  renderLucide();
 }
 
 function openDetails(item = currentItem) {
@@ -2756,13 +2774,16 @@ function openDetails(item = currentItem) {
   checkGoals();
   saveState();
 
-  $("#detailVisual").textContent = item.visual;
-  $("#detailDemoEmoji").textContent = item.visual;
-  $("#detailDemoText").textContent = item.demo || item.word;
+  $("#detailVisual").innerHTML = `<i data-lucide="${iconForItem(item)}"></i>`;
+  $("#detailDemoEmoji").innerHTML = `<i data-lucide="${iconForItem(item)}"></i>`;
+  $("#detailDemoText").textContent = item.word;
   $("#detailCategory").textContent = `${item.category} · ${item.difficulty}`;
   $("#detailWord").textContent = item.word;
   $("#detailTranslation").textContent = item.translation;
   $("#detailPronunciation").textContent = item.pronunciation;
+  const image = $("#detailImage");
+  image.src = imageForItem(item);
+  image.alt = `Imagen relacionada con ${item.word}`;
 
   if (item.type === "verb") {
     $("#exampleOneLabel").textContent = "Present";
@@ -2782,6 +2803,7 @@ function openDetails(item = currentItem) {
 
   $("#toggleLearnedDetail").textContent = isLearned(item.id) ? "Marked as learned ✓" : "Mark as learned";
   openModal("detailModal");
+  renderLucide();
   if (settings.autoplay) speak(item.speechWord || item.word);
 }
 
@@ -3116,6 +3138,7 @@ function init() {
   if ("serviceWorker" in navigator) {
     navigator.serviceWorker.register("service-worker.js").catch(() => {});
   }
+  renderLucide();
 }
 
 init();

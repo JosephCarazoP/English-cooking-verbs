@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="theme-color" content="#f59e0b" />
+  <meta name="theme-color" content="#09090b" />
   <title>Kitchen English</title>
   <link rel="manifest" href="manifest.json" />
   <link rel="stylesheet" href="styles.css" />
@@ -13,7 +13,7 @@
   <div class="app-shell">
     <header class="topbar">
       <div class="brand">
-        <div class="logo" aria-hidden="true">🍳</div>
+        <div class="logo" aria-hidden="true"><i data-lucide="chef-hat"></i></div>
         <div>
           <h1>Kitchen English</h1>
           <p>Learn cooking verbs & kitchen tools</p>
@@ -21,8 +21,8 @@
       </div>
 
       <div class="top-actions">
-        <button class="icon-btn" id="goalsBtn" title="Objetivos">🏆</button>
-        <button class="icon-btn" id="settingsBtn" title="Configuración">⚙️</button>
+        <button class="icon-btn" id="goalsBtn" title="Objetivos"><i data-lucide="trophy"></i></button>
+        <button class="icon-btn" id="settingsBtn" title="Configuración"><i data-lucide="settings-2"></i></button>
       </div>
     </header>
 
@@ -40,7 +40,7 @@
           <article id="flashcard" class="flashcard" tabindex="0" role="button" aria-label="Toca para girar la tarjeta">
             <div class="card-face card-front">
               <span class="tag" id="frontTag">Cooking Verb</span>
-              <div class="visual-orb" id="frontVisual">🍳</div>
+              <div class="visual-orb" id="frontVisual"><i data-lucide="chef-hat"></i></div>
               <h2 id="frontWord">Loading…</h2>
               <p id="frontHint">tap to flip</p>
               <small>tap ✦ for details</small>
@@ -58,7 +58,7 @@
         <div class="answer-actions">
           <button id="dontKnowBtn" class="answer-btn negative">I don't know</button>
           <button id="knowBtn" class="answer-btn positive">I know it</button>
-          <button id="detailsBtn" class="answer-btn details">✦</button>
+          <button id="detailsBtn" class="answer-btn details"><i data-lucide="info"></i></button>
         </div>
 
         <div class="swipe-help">
@@ -123,7 +123,7 @@
       </section>
 
       <section id="roundComplete" class="round-complete glass-panel hidden">
-        <div class="complete-icon">🎉</div>
+        <div class="complete-icon"><i data-lucide="party-popper"></i></div>
         <h2>Round complete!</h2>
         <p>Buen trabajo. Podés hacer un quiz o mezclar las palabras.</p>
         <div class="complete-stats">
@@ -157,7 +157,7 @@
     <div class="modal-card detail-card">
       <button class="close-btn" data-close="detailModal">✕</button>
       <div class="detail-hero">
-        <div class="detail-visual" id="detailVisual">🍳</div>
+        <div class="detail-visual" id="detailVisual"><i data-lucide="chef-hat"></i></div>
         <div>
           <span class="tag" id="detailCategory">Category</span>
           <h2 id="detailWord">Word</h2>
@@ -176,9 +176,12 @@
       </div>
 
       <div class="detail-demo">
-        <span id="detailDemoEmoji">🍳</span>
+        <span id="detailDemoEmoji"><i data-lucide="utensils-crossed"></i></span>
         <p id="detailDemoText">Visual demo</p>
       </div>
+      <figure class="detail-image-wrap">
+        <img id="detailImage" src="" alt="Cooking action reference" loading="lazy" />
+      </figure>
 
       <div class="detail-grid">
         <article>
@@ -200,7 +203,7 @@
   <div id="goalsModal" class="modal hidden" aria-hidden="true">
     <div class="modal-card">
       <button class="close-btn" data-close="goalsModal">✕</button>
-      <h2>🏆 Objetivos</h2>
+      <h2><i data-lucide="trophy"></i> Objetivos</h2>
       <p class="muted">Cumple metas usando la app: aprende palabras, mantén tu racha y supera quizzes.</p>
       <div class="goal-summary">
         <strong id="goalsCompleted">0 / 0 completados</strong>
@@ -213,7 +216,7 @@
   <div id="settingsModal" class="modal hidden" aria-hidden="true">
     <div class="modal-card settings-card">
       <button class="close-btn" data-close="settingsModal">✕</button>
-      <h2>⚙️ Configuración</h2>
+      <h2><i data-lucide="settings-2"></i> Configuración</h2>
       <section>
         <h3>Apariencia</h3>
         <div class="segmented" id="themeSelector">
@@ -262,6 +265,7 @@
     </div>
   </div>
 
+  <script src="https://unpkg.com/lucide@latest"></script>
   <script src="app.js"></script>
 </body>
 </html>
