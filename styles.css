@@ -69,7 +69,7 @@ button:focus-visible, input:focus-visible, .flashcard:focus-visible {
 .app-shell {
   width: min(1120px, calc(100% - 32px));
   margin: 0 auto;
-  padding: 22px 0 34px;
+  padding: 14px 0 24px;
 }
 
 .topbar, .brand, .top-actions, .level-card, .level-row, .deck-head, .answer-actions, .complete-actions, .detail-hero, .audio-row, .section-title, .goal-summary {
@@ -125,8 +125,8 @@ h1 {
 
 .level-card {
   gap: 16px;
-  padding: 16px;
-  margin-bottom: 18px;
+  padding: 12px;
+  margin-bottom: 12px;
 }
 
 .streak-badge {
@@ -161,8 +161,8 @@ h1 {
 .controls {
   display: grid;
   gap: 14px;
-  padding: 16px;
-  margin-bottom: 18px;
+  padding: 12px;
+  margin-bottom: 12px;
 }
 
 .search-wrap {
@@ -238,8 +238,8 @@ i[data-lucide] { width: 18px; height: 18px; stroke-width: 2; display: inline-blo
 .stat-card small { display: block; margin-top: 2px; }
 
 .study-area, .round-complete, .library-panel {
-  padding: 18px;
-  margin-bottom: 18px;
+  padding: 14px;
+  margin-bottom: 12px;
 }
 
 .deck-head { justify-content: space-between; gap: 12px; margin-bottom: 14px; }
@@ -254,11 +254,13 @@ i[data-lucide] { width: 18px; height: 18px; stroke-width: 2; display: inline-blo
 }
 
 .flashcard {
-  width: min(460px, 100%);
-  height: 320px;
+  width: min(420px, 100%);
+  height: 290px;
   position: relative;
   transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
   transition: transform 650ms cubic-bezier(.2,.75,.2,1);
+  will-change: transform;
 }
 
 .flashcard.flipped { transform: rotateY(180deg); }
@@ -271,12 +273,15 @@ i[data-lucide] { width: 18px; height: 18px; stroke-width: 2; display: inline-blo
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 28px;
-  border-radius: 34px;
+  padding: 22px;
+  border-radius: 22px;
   background: var(--panel-strong);
   border: 1px solid var(--line);
   box-shadow: var(--shadow);
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
   overflow: hidden;
 }
 
@@ -292,7 +297,8 @@ i[data-lucide] { width: 18px; height: 18px; stroke-width: 2; display: inline-blo
 }
 
 .card-face > * { position: relative; z-index: 1; }
-.card-back { transform: rotateY(180deg); }
+.card-front { transform: rotateY(0deg) translateZ(1px); }
+.card-back { transform: rotateY(180deg) translateZ(1px); }
 .tag {
   display: inline-flex;
   align-items: center;
@@ -305,22 +311,22 @@ i[data-lucide] { width: 18px; height: 18px; stroke-width: 2; display: inline-blo
   font-weight: 800;
 }
 .visual-orb {
-  width: 104px;
-  height: 104px;
+  width: 82px;
+  height: 82px;
   display: grid;
   place-items: center;
-  margin: 22px auto 16px;
-  border-radius: 32px;
+  margin: 14px auto 10px;
+  border-radius: 18px;
   background: linear-gradient(135deg, color-mix(in srgb, var(--accent), transparent 40%), color-mix(in srgb, var(--accent-2), transparent 58%));
-  font-size: 3.1rem;
-  animation: floaty 3.2s ease-in-out infinite;
+  font-size: 2.2rem;
+  animation: none;
 }
 
 @keyframes floaty { 0%,100% { transform: translateY(0) rotate(-2deg); } 50% { transform: translateY(-8px) rotate(2deg); } }
 
-.card-face h2 { font-size: clamp(2.4rem, 8vw, 4.6rem); letter-spacing: -0.08em; line-height: 1; margin-bottom: 10px; text-transform: capitalize; }
+.card-face h2 { font-size: clamp(2rem, 7vw, 3.4rem); letter-spacing: -0.05em; line-height: 1; margin-bottom: 8px; text-transform: capitalize; }
 .card-front p { color: var(--muted); margin-bottom: 7px; }
-.card-back h2 { font-size: clamp(1.8rem, 6vw, 3.2rem); letter-spacing: -0.06em; margin: 20px 0 8px; }
+.card-back h2 { font-size: clamp(1.4rem, 5vw, 2.5rem); letter-spacing: -0.04em; margin: 14px 0 6px; }
 .pron { font-weight: 800; color: var(--accent-3); margin: 4px 0 10px; }
 #backExtra { color: var(--muted); }
 
