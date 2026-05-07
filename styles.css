@@ -67,7 +67,7 @@ button:focus-visible, input:focus-visible, .flashcard:focus-visible {
 }
 
 .app-shell {
-  width: min(1120px, calc(100% - 32px));
+  width: min(980px, calc(100% - 24px));
   margin: 0 auto;
   padding: 14px 0 24px;
 }
@@ -79,8 +79,8 @@ button:focus-visible, input:focus-visible, .flashcard:focus-visible {
 
 .topbar {
   justify-content: space-between;
-  gap: 18px;
-  margin-bottom: 18px;
+  gap: 12px;
+  margin-bottom: 10px;
 }
 
 .brand { gap: 12px; }
@@ -238,8 +238,8 @@ i[data-lucide] { width: 18px; height: 18px; stroke-width: 2; display: inline-blo
 .stat-card small { display: block; margin-top: 2px; }
 
 .study-area, .round-complete, .library-panel {
-  padding: 14px;
-  margin-bottom: 12px;
+  padding: 12px;
+  margin-bottom: 10px;
 }
 
 .deck-head { justify-content: space-between; gap: 12px; margin-bottom: 14px; }
@@ -250,7 +250,7 @@ i[data-lucide] { width: 18px; height: 18px; stroke-width: 2; display: inline-blo
   perspective: 1200px;
   display: grid;
   place-items: center;
-  min-height: 330px;
+  min-height: 280px;
 }
 
 .flashcard {
@@ -418,6 +418,18 @@ i[data-lucide] { width: 18px; height: 18px; stroke-width: 2; display: inline-blo
   color: var(--text);
 }
 .detail-hero { gap: 16px; padding-right: 42px; }
+.detail-image-wrap {
+  margin: 10px 0 0;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+#detailImage {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  display: block;
+}
 .detail-visual {
   width: 96px;
   height: 96px;

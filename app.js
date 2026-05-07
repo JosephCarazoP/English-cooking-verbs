@@ -2527,6 +2527,11 @@ function iconForItem(item) {
   return "chef-hat";
 }
 
+function imageForItem(item) {
+  const term = `${item.word} cooking`;
+  return `https://source.unsplash.com/900x600/?${encodeURIComponent(term)}`;
+}
+
 function renderLucide() {
   if (window.lucide?.createIcons) window.lucide.createIcons();
 }
@@ -2776,6 +2781,9 @@ function openDetails(item = currentItem) {
   $("#detailWord").textContent = item.word;
   $("#detailTranslation").textContent = item.translation;
   $("#detailPronunciation").textContent = item.pronunciation;
+  const image = $("#detailImage");
+  image.src = imageForItem(item);
+  image.alt = `Imagen relacionada con ${item.word}`;
 
   if (item.type === "verb") {
     $("#exampleOneLabel").textContent = "Present";
